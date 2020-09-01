@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:style="clr-namespace:SmoothCurvedSegment.Resources"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <Thickness x:Key="Component.Border.Static.BorderThickness">3</Thickness>
+    <CornerRadius x:Key="Component.Border.Static.CornerRadius">8</CornerRadius>
+
+    <SolidColorBrush x:Key="Component.Border.TextBlock.Static.Foreground" Color="{Binding Source={x:Static style:Colors.MainTheme}}"/>
+    <system:Double x:Key="Component.Border.TextBlock.Static.FontSize">12</system:Double>
+    <Thickness x:Key="Component.Border.TextBlock.Static.Margin">10,5,10,5</Thickness>
+
+    <Thickness x:Key="Component.Border.Image.Static.Margin">10,5,10,5</Thickness>
+
+    <SolidColorBrush x:Key="Component.Grid.Static.Background" Color="{Binding Source={x:Static style:Colors.LightTheme}}"/>
+
+    <system:Double x:Key="Component.Separator.Static.Height">1</system:Double>
+    <Thickness x:Key="Component.Separator.Static.Margin">5,0,5,0</Thickness>
+    <SolidColorBrush x:Key="Component.Separator.Static.Fill" Color="{Binding Source={x:Static style:Colors.DarkTheme}}"/>
+
+    <SolidColorBrush x:Key="Component.Border.Static.BorderBrush" Color="{Binding Source={x:Static style:Colors.DarkTheme}}"/>
+
+    <Style TargetType="{x:Type Border}" x:Key="ComponentBorderStyle">
+        <Setter Property="BorderThickness" Value="{StaticResource Component.Border.Static.BorderThickness}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Component.Border.Static.BorderBrush}"/>
+        <Setter Property="CornerRadius" Value="{StaticResource Component.Border.Static.CornerRadius}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Resources>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{StaticResource Component.Border.TextBlock.Static.Foreground}"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="FontSize" Value="{StaticResource Component.Border.TextBlock.Static.FontSize}"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="{StaticResource Component.Border.TextBlock.Static.Margin}"/>
+            </Style>
+
+            <Style TargetType="{x:Type Image}">
+                <Setter Property="Margin" Value="{StaticResource Component.Border.Image.Static.Margin}"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="{x:Type Grid}" x:Key="ComponentGridStyle">
+        <Setter Property="Margin" Value="-1"/>
+        <Setter Property="MinWidth" Value="200"/>
+        <Setter Property="MinHeight" Value="100"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="Background" Value="{StaticResource Component.Grid.Static.Background}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="ComponentBorderMaskStyle">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="CornerRadius" Value="{StaticResource Component.Border.Static.CornerRadius}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Rectangle}" x:Key="ComponentSeparatorStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Fill" Value="{StaticResource Component.Separator.Static.Fill}"/>
+        <Setter Property="Height" Value="{StaticResource Component.Separator.Static.Height}"/>
+        <Setter Property="Margin" Value="{StaticResource Component.Separator.Static.Margin}"/>
+    </Style>
+
+</ResourceDictionary>

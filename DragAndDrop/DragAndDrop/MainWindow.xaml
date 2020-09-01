@@ -1,0 +1,81 @@
+﻿<Window
+    x:Class="DragAndDrop.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DragAndDrop"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:DragAndDrop.ViewModel"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Window.InputBindings>
+        <KeyBinding
+            Key="V"
+            Command="{Binding PasteCommand, Mode=OneWay}"
+            CommandParameter="{Binding ElementName=Panel}"
+            Modifiers="Ctrl" />
+    </Window.InputBindings>
+
+    <Window.DataContext>
+        <vm:DropFileViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel
+                x:Name="Panel"
+                Grid.Row="0"
+                AllowDrop="True"
+                Background="LightCoral">
+
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="Drop">
+                        <behaviors:InvokeCommandAction Command="{Binding DropFileCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+            </StackPanel>
+
+        </ScrollViewer>
+
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Margin="10"
+                Padding="10"
+                HorizontalAlignment="Center"
+                Background="LavenderBlush"
+                Content="Drag from here"
+                MouseDown="Label1_MouseDown"
+                QueryContinueDrag="Label1_QueryContinueDrag" />
+            <Label
+                Grid.Row="1"
+                Margin="10"
+                Padding="10"
+                HorizontalAlignment="Center"
+                AllowDrop="True"
+                Background="SandyBrown"
+                Content="To here"
+                Drop="Label2_Drop" />
+
+        </Grid>
+
+    </Grid>
+
+
+
+</Window>

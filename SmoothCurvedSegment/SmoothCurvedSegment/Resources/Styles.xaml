@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/ExpanderStyle.xaml"/>
+        <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
+        <ResourceDictionary Source="Styles/MenuStyle.xaml"/>
+        <ResourceDictionary Source="Styles/MenuItemStyle.xaml"/>
+        <ResourceDictionary Source="Styles/ListViewStyle.xaml"/>
+        <ResourceDictionary Source="Styles/ListViewItemStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

@@ -1,0 +1,41 @@
+﻿<Window
+    x:Class="NegativeCoords.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NegativeCoords"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Background="Transparent">
+
+            <Grid.DataContext>
+                <local:SelectionViewModel />
+            </Grid.DataContext>
+
+            <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="MouseLeftButtonDown">
+                    <behaviors:InvokeCommandAction Command="{Binding StartSelectionCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+                </behaviors:EventTrigger>
+                <behaviors:EventTrigger EventName="MouseLeftButtonUp">
+                    <behaviors:InvokeCommandAction Command="{Binding CloseSelectionCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+                </behaviors:EventTrigger>
+                <behaviors:EventTrigger EventName="MouseMove">
+                    <behaviors:InvokeCommandAction Command="{Binding DrawSelectionCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+                </behaviors:EventTrigger>
+            </behaviors:Interaction.Triggers>
+
+            <Path Fill="AliceBlue" Stroke="Blue">
+                <Path.Data>
+                    <RectangleGeometry Rect="{Binding Selection, Mode=OneWay}" />
+                </Path.Data>
+            </Path>
+
+        </Grid>
+    </ScrollViewer>
+</Window>

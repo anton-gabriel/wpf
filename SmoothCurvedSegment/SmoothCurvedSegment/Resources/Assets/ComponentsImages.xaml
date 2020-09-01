@@ -1,0 +1,200 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Geometry x:Key="TestScenarioGeometry">F1 M122,62z M0,0z M70.31,26.71L70.31,24.9 68.46,24.9 68.46,26.71z M72.11,26.71L73.96,26.71 73.96,24.9 72.11,24.9z M75.72,26.71L77.58,26.71 77.58,24.9 75.72,24.9z M68.45,46.68L90.3,46.68 90.3,28.49 68.45,28.49z M64.87,21.31L93.79,21.31 93.79,50.23 64.87,50.23z M31.78,24.61C32.15,20.8 35.36,17.29 40.45,15.65 43.01,14.85 47.03,14.44 50.1,14.67L50.2,11 60.66,18.66 49.62,25.36 49.8,21.8C45.84,21 43.65,20.6 40.28,20.56 37.23,20.65 33.79,21.15 31.78,24.61z M39.08,43.87C42.47,45.12 46.09,43.37 47.3,40.07 48.4,37.1 47.21,33.28 43.38,31.88 40.63,30.87 36.68,31.96 35.31,35.71 34.15,38.83 35.63,42.61 39.08,43.87z M35.19,49.47C34.33,48.97,33.49,48.44,32.76,47.77L33.55,45.78C33.01,45.3,32.5,44.71,32.06,43.95L29.88,44.35C29.48,43.48,29.08,42.62,28.74,41.6L30.54,40.3C30.34,39.69,30.19,38.8,30.25,37.93L28.22,37.16C28.31,36.27,28.45,35.32,28.75,34.19L30.9,34.15C31.11,33.46,31.57,32.55,31.95,31.92L30.73,30.2C31.32,29.43,31.96,28.69,32.72,28.04L34.58,29.15C35.15,28.63,35.88,28.22,36.67,27.86L36.54,25.76C37.43,25.38,38.41,25.13,39.44,24.95L40.42,26.87C41.27,26.78,42.19,26.85,42.82,27L43.9,25.09C44.91,25.28,45.92,25.64,46.74,26.04L46.51,28.12C47.2,28.51,47.88,28.94,48.53,29.51L50.43,28.55C51.13,29.23,51.77,30.03,52.29,30.83L51,32.48C51.39,33.28,51.76,34.07,51.89,34.74L54.05,34.97C54.28,35.96,54.38,36.93,54.39,37.88L52.38,38.56C52.32,39.41,52.13,40.31,51.93,40.99L53.64,42.31C53.26,43.22,52.76,44.34,52.33,44.94L50.21,44.44C49.72,45.15,49.18,45.73,48.6,46.24L49.29,48.28C48.66,48.77,47.71,49.37,46.76,49.79L45.28,48.21C44.66,48.49,43.83,48.73,42.97,48.79L42.4,50.91C41.48,51,40.5,50.97,39.47,50.86L39.09,48.71C38.42,48.6,37.41,48.31,36.76,47.95z</Geometry>
+  <DrawingGroup x:Key="TestScenarioDrawingGroup" ClipGeometry="M-0.5,-0.5 V61.5 H121.5 V-0.5 H-0.5 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="0.5" Y="0.5" />
+    </DrawingGroup.Transform>
+    <DrawingGroup Opacity="1">
+      <GeometryDrawing>
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FF324B4B" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+        <GeometryDrawing.Geometry>
+          <RectangleGeometry RadiusX="9" RadiusY="9" Rect="1,1,120,60" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <DrawingGroup Opacity="1" Transform="1,0,0,1,-0.5,-0.5">
+        <DrawingGroup>
+          <GlyphRunDrawing ForegroundBrush="#FF324b4b">
+            <GlyphRunDrawing.GlyphRun>
+              <GlyphRun PixelsPerDip="1.25" BaselineOrigin="8.33333333333333,15" FontRenderingEmSize="12" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="TS" GlyphIndices="55 54" AdvanceWidths="7.332 8.004" GlyphOffsets="0,0 0,0" Language="en-us">
+                <GlyphRun.GlyphTypeface>
+                  <GlyphTypeface FontUri="C:\WINDOWS\FONTS\ARIAL.TTF" StyleSimulations="None" />
+                </GlyphRun.GlyphTypeface>
+              </GlyphRun>
+            </GlyphRunDrawing.GlyphRun>
+          </GlyphRunDrawing>
+        </DrawingGroup>
+      </DrawingGroup>
+      <GeometryDrawing Brush="{Binding Color, Mode=OneWay}" Geometry="{StaticResource TestScenarioGeometry}" />
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="TestScenarioDrawingImage" Drawing="{StaticResource TestScenarioDrawingGroup}" />
+  <Geometry x:Key="ActiveComponentGeometry">F1 M123,63z M0,0z M62.55,29.39L69.25,8C72.2,8.27,75.06,9.19,77.62,10.69L69.2,25.64 74.32,25.58 62.9,38.56 66.71,29.39z M64.78,17.78C59.22,18.74 55.09,23.47 54.9,29.1 54.7,34.73 58.49,39.73 63.97,41.08 69.45,42.42 75.13,39.75 77.57,34.67 80.01,29.58 78.55,23.49 74.07,20.06L77.02,15.75 79.15,14.49 81.84,17.12 79.6,20.82 80.67,22.85 84.98,22.75 86,26.29 82.19,28.32 82.19,30.7 85.95,32.73 85.04,36.28 80.62,36.18 79.55,38.3 81.79,41.85 79.1,44.54 75.44,42.26 73.51,43.32 73.56,47.68 70.01,48.69 67.93,44.89 65.64,44.89 63.56,48.69 59.96,47.68 60.11,43.37 58.08,42.26 54.27,44.54 51.74,41.85 54.02,38.15 52.9,36.18 48.54,36.28 47.68,32.68 51.38,30.65 51.38,28.37 47.62,26.34 48.59,22.75 52.9,22.85 54.02,20.82 51.74,17.17 54.38,14.59 58.18,16.72 60.06,15.7 60.01,11.29 63.51,10.33 65.64,14.08z M45.04,36.78L45.8,39.11 47.17,39.62 49.2,38.56 50.47,39.82 49.45,41.95 50.11,43.32 52.24,44.03 52.35,45.8 50.16,46.56 49.45,47.83 50.57,49.96 49.3,51.23 47.22,50.31 45.8,50.82 45.14,53 43.31,53 42.55,50.87 41.23,50.26 39.1,51.38 37.78,50.06 38.79,47.98 38.39,46.72 36,45.85 36.1,44.08 38.23,43.32 38.84,42 37.73,39.93 38.99,38.56 41.23,39.62 42.5,39.11 43.16,36.89 44.88,36.78z M44.27,42.26C43.53,42.26 42.82,42.55 42.3,43.07 41.78,43.6 41.48,44.3 41.48,45.04 41.48,46.58 42.73,47.83 44.27,47.83 45.82,47.83 47.07,46.58 47.07,45.04 47.07,43.5 45.82,42.26 44.27,42.26</Geometry>
+  <DrawingGroup x:Key="ActiveComponentDrawingGroup" ClipGeometry="M-0.5,-0.5 V62.5 H122.5 V-0.5 H-0.5 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="0.5" Y="0.5" />
+    </DrawingGroup.Transform>
+    <DrawingGroup Opacity="1">
+      <GeometryDrawing>
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FF324B4B" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+        <GeometryDrawing.Geometry>
+          <RectangleGeometry RadiusX="9" RadiusY="9" Rect="1,1,120,60" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <GeometryDrawing Brush="{Binding Color, Mode=OneWay}" Geometry="{StaticResource ActiveComponentGeometry}" />
+      <DrawingGroup Opacity="1" Transform="1,0,0,1,-0.5,-0.5">
+        <DrawingGroup>
+          <GlyphRunDrawing ForegroundBrush="#FF324b4b">
+            <GlyphRunDrawing.GlyphRun>
+              <GlyphRun PixelsPerDip="1.25" BaselineOrigin="7.66666666666667,15" FontRenderingEmSize="12" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="AC" GlyphIndices="36 38" AdvanceWidths="8.004 8.664" GlyphOffsets="0,0 0,0" Language="en-us">
+                <GlyphRun.GlyphTypeface>
+                  <GlyphTypeface FontUri="C:\WINDOWS\FONTS\ARIAL.TTF" StyleSimulations="None" />
+                </GlyphRun.GlyphTypeface>
+              </GlyphRun>
+            </GlyphRunDrawing.GlyphRun>
+          </GlyphRunDrawing>
+        </DrawingGroup>
+      </DrawingGroup>
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="ActiveComponentDrawingImage" Drawing="{StaticResource ActiveComponentDrawingGroup}" />
+  <Geometry x:Key="PassiveComponentGeometry">F1 M122,62z M0,0z M11,31L29,31 M93,31L111,31</Geometry>
+  <DrawingGroup x:Key="PassiveComponentDrawingGroup" ClipGeometry="M-0.5,-0.5 V61.5 H121.5 V-0.5 H-0.5 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="0.5" Y="0.5" />
+    </DrawingGroup.Transform>
+    <DrawingGroup Opacity="1">
+      <GeometryDrawing>
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FF324B4B" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+        <GeometryDrawing.Geometry>
+          <RectangleGeometry RadiusX="9" RadiusY="9" Rect="1,1,120,60" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <DrawingGroup Opacity="1" Transform="1,0,0,1,-0.5,-0.5">
+        <DrawingGroup>
+          <GlyphRunDrawing ForegroundBrush="#FF324b4b">
+            <GlyphRunDrawing.GlyphRun>
+              <GlyphRun PixelsPerDip="1.25" BaselineOrigin="7.66666666666667,15" FontRenderingEmSize="12" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="PC" GlyphIndices="51 38" AdvanceWidths="8.004 8.664" GlyphOffsets="0,0 0,0" Language="en-us">
+                <GlyphRun.GlyphTypeface>
+                  <GlyphTypeface FontUri="C:\WINDOWS\FONTS\ARIAL.TTF" StyleSimulations="None" />
+                </GlyphRun.GlyphTypeface>
+              </GlyphRun>
+            </GlyphRunDrawing.GlyphRun>
+          </GlyphRunDrawing>
+        </DrawingGroup>
+      </DrawingGroup>
+      <GeometryDrawing>
+        <GeometryDrawing.Pen>
+          <Pen Brush="{Binding Color, Mode=OneWay}" Thickness="3" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+        <GeometryDrawing.Geometry>
+          <RectangleGeometry RadiusX="0" RadiusY="0" Rect="29,21,64,20" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <GeometryDrawing Geometry="{StaticResource PassiveComponentGeometry}">
+        <GeometryDrawing.Pen>
+          <Pen Brush="{Binding Color, Mode=OneWay}" Thickness="3" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" MiterLimit="10" />
+        </GeometryDrawing.Pen>
+      </GeometryDrawing>
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="PassiveComponentDrawingImage" Drawing="{StaticResource PassiveComponentDrawingGroup}" />
+  <Geometry x:Key="BodyGeometry">F1 M122,62z M0,0z M110.92,27.8C110.87,27.52,110.76,27.19,110.56,26.75L91.99,12.05 54.62,12.05C53.75,12,53.28,12.4,52.87,12.88L40.39,25.36 13.07,29.88C12.69,30.22,12.31,30.55,12,31.4L12.06,40.77C12.65,42.27,13.06,42.07,13.51,42.29L18.77,42.29C18.77,29.55,37.8,29.59,37.8,42.29L86.32,42.29C86.32,29.52,105.21,29.54,105.21,42.29L109.52,42.29C110.24,42.22,110.65,41.59,111,40.84L110.92,27.8z M70.81,27.2L44.92,27.2C43.93,26.81,43.81,26.22,44.21,25.51L53.52,16.35C53.73,16.17,53.9,15.92,54.26,15.98L70.81,15.98 70.81,27.2z M97.62,27.2L73.88,27.2 73.88,15.97 87.8,15.97C88.16,15.91,88.33,16.16,88.54,16.34L96.52,24.34C97.26,25.46,98.74,26.97,97.62,27.2z M28.24,34.59C23.97,34.59 20.51,38.04 20.51,42.3 20.51,46.55 23.96,50 28.24,50 32.51,50 35.97,46.55 35.97,42.3 35.97,38.04 32.5,34.59 28.24,34.59z M28.24,45.54C26.44,45.54 24.97,44.08 24.97,42.29 24.97,40.49 26.43,39.04 28.24,39.04 30.03,39.04 31.49,40.49 31.49,42.29 31.49,44.08 30.03,45.54 28.24,45.54z M95.76,34.59C91.5,34.59 88.03,38.04 88.03,42.3 88.03,46.55 91.49,50 95.76,50 100.04,50 103.48,46.55 103.48,42.3 103.48,38.04 100.03,34.59 95.76,34.59z M95.76,45.54C93.96,45.54 92.5,44.08 92.5,42.29 92.5,40.49 93.95,39.04 95.76,39.04 97.56,39.04 99.02,40.49 99.02,42.29 99.02,44.08 97.56,45.54 95.76,45.54z</Geometry>
+  <DrawingGroup x:Key="BodyDrawingGroup" ClipGeometry="M-0.5,-0.5 V61.5 H121.5 V-0.5 H-0.5 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="0.5" Y="0.5" />
+    </DrawingGroup.Transform>
+    <DrawingGroup Opacity="1">
+      <GeometryDrawing>
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FF324B4B" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+        <GeometryDrawing.Geometry>
+          <RectangleGeometry RadiusX="9" RadiusY="9" Rect="1,1,120,60" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <GeometryDrawing Brush="{Binding Color, Mode=OneWay}" Geometry="{StaticResource BodyGeometry}" />
+      <DrawingGroup Opacity="1" Transform="1,0,0,1,-0.5,-0.5">
+        <DrawingGroup>
+          <GlyphRunDrawing ForegroundBrush="#FF324b4b">
+            <GlyphRunDrawing.GlyphRun>
+              <GlyphRun PixelsPerDip="1.25" BaselineOrigin="7,15" FontRenderingEmSize="12" BidiLevel="0" IsSideways="False" ClusterMap="0" Characters="B" GlyphIndices="37" AdvanceWidths="8.004" GlyphOffsets="0,0" Language="en-us">
+                <GlyphRun.GlyphTypeface>
+                  <GlyphTypeface FontUri="C:\WINDOWS\FONTS\ARIAL.TTF" StyleSimulations="None" />
+                </GlyphRun.GlyphTypeface>
+              </GlyphRun>
+            </GlyphRunDrawing.GlyphRun>
+          </GlyphRunDrawing>
+        </DrawingGroup>
+      </DrawingGroup>
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="BodyDrawingImage" Drawing="{StaticResource BodyDrawingGroup}" />
+  <Geometry x:Key="ConnectorGeometry">F1 M122,62z M0,0z M64.5,35.84C65.21,37.44 66.22,38.63 67.42,39.6 69.42,41.19 71.55,41.91 73.77,41.99L80.58,41.99C84.07,41.83 86.6,40.2 88.33,38.18 90.77,35.43 92,30.21 89.29,25.87 87.56,23.17 84.59,21.11 80.52,21L73.7,21C71.67,21 69.06,21.97 67.59,23.19 65.98,24.51 65.16,25.8 64.57,26.98L69.66,26.98C70.61,26.05,71.88,25.26,73.87,25.18L80.5,25.18C82.31,25.28 84.01,25.89 85.44,27.82 87.04,30.21 86.89,33.04 85.34,35.17 84.21,36.56 82.77,37.65 80.5,37.76L73.98,37.76C71.95,37.76,70.47,36.72,69.59,35.84z M75.36,33.68C76.52,33.68 77.43,32.64 77.43,31.51 77.43,30.22 76.37,29.19 75.33,29.19L47.28,29.19C46.34,29.19 45.25,30.24 45.25,31.46 45.25,32.79 46.34,33.68 47.31,33.68z M58.12,35.99C57.32,37.69 56.12,39.28 54.18,40.47 52.56,41.42 50.79,42 48.65,41.99L42.15,41.99C38.7,41.99 34.62,39.98 32.74,35.92 31.63,33.2 31,30.08 33.35,25.95 35.3,22.73 38.95,21 41.87,21L49.12,21C51.22,21.13 53.19,21.83 55.01,23.2 56.47,24.35 57.44,25.6 58.11,26.98L53.04,26.98C51.95,25.85,50.24,25.16,48.7,25.18L42.25,25.18C40.85,25.18 38.63,25.88 37.18,27.99 35.27,31.04 36.41,33.67 36.95,34.64 38.32,36.9 40.3,37.64 42.18,37.76L49.06,37.76C50.71,37.65,51.98,36.98,53.03,35.99z</Geometry>
+  <DrawingGroup x:Key="ConnectorDrawingGroup" ClipGeometry="M-0.5,-0.5 V61.5 H121.5 V-0.5 H-0.5 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="0.5" Y="0.5" />
+    </DrawingGroup.Transform>
+    <DrawingGroup Opacity="1">
+      <GeometryDrawing>
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FF324B4B" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+        <GeometryDrawing.Geometry>
+          <RectangleGeometry RadiusX="9" RadiusY="9" Rect="1,1,120,60" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <DrawingGroup Opacity="1" Transform="1,0,0,1,-0.5,-0.5">
+        <DrawingGroup>
+          <GlyphRunDrawing ForegroundBrush="#FF324b4b">
+            <GlyphRunDrawing.GlyphRun>
+              <GlyphRun PixelsPerDip="1.25" BaselineOrigin="7.66666666666667,15" FontRenderingEmSize="12" BidiLevel="0" IsSideways="False" ClusterMap="0 1 2" Characters="CON" GlyphIndices="38 50 49" AdvanceWidths="8.664 9.336 8.664" GlyphOffsets="0,0 0,0 0,0" Language="en-us">
+                <GlyphRun.GlyphTypeface>
+                  <GlyphTypeface FontUri="C:\WINDOWS\FONTS\ARIAL.TTF" StyleSimulations="None" />
+                </GlyphRun.GlyphTypeface>
+              </GlyphRun>
+            </GlyphRunDrawing.GlyphRun>
+          </GlyphRunDrawing>
+        </DrawingGroup>
+      </DrawingGroup>
+      <GeometryDrawing Brush="{Binding Color, Mode=OneWay}" Geometry="{StaticResource ConnectorGeometry}" />
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="ConnectorDrawingImage" Drawing="{StaticResource ConnectorDrawingGroup}" />
+  <Geometry x:Key="LoadSectionGeometry">F1 M122,62z M0,0z M60.95,40.88C66.46,40.88 70.73,36.45 70.73,31.05 70.73,26.2 67,21.33 60.76,21.33 56.29,21.33 51.21,25 51.21,31.12 51.21,36.23 55.33,40.88 60.95,40.88z M58.33,51C56.82,50.74,55.34,50.41,53.94,49.84L54.02,46.55C52.99,46.15,51.95,45.56,50.91,44.72L47.99,46.44C46.97,45.39,45.94,44.36,44.91,43.08L46.81,40.26C46.2,39.48,45.51,38.28,45.13,36.99L41.82,36.97C41.47,35.64,41.18,34.18,41,32.41L44.07,31.21C44.01,30.1,44.18,28.55,44.39,27.44L41.73,25.61C42.18,24.19,42.7,22.79,43.46,21.44L46.71,22.06C47.25,21.01,48.07,20.04,49.03,19.1L47.73,16.14C48.79,15.12,50.07,14.24,51.45,13.43L53.88,15.68C55.05,15.1,56.4,14.72,57.39,14.6L57.93,11.28C59.48,11.02,61.11,11,62.51,11.15L63.27,14.26C64.47,14.45,65.68,14.72,66.91,15.19L69.12,12.8C70.49,13.41,71.82,14.23,73,15.11L72.03,18.15C73,19.12,73.95,20.05,74.49,20.95L77.71,20.14C78.56,21.44,79.22,22.78,79.73,24.15L77.22,26.19C77.57,27.44,77.78,28.84,77.85,29.93L81,30.91C80.93,32.43,80.81,34.31,80.51,35.41L77.21,35.81C76.89,37.09,76.41,38.21,75.85,39.24L77.92,41.82C77.28,42.86,76.22,44.23,75.09,45.33L72.13,43.84C71.39,44.57,70.33,45.36,69.12,45.9L69.43,49.26C68.16,49.87,66.73,50.36,65.19,50.74L63.51,47.84C62.49,48.04,60.9,48.15,59.78,47.98z</Geometry>
+  <DrawingGroup x:Key="LoadSectionDrawingGroup" ClipGeometry="M-0.5,-0.5 V61.5 H121.5 V-0.5 H-0.5 Z">
+    <DrawingGroup.Transform>
+      <TranslateTransform X="0.5" Y="0.5" />
+    </DrawingGroup.Transform>
+    <DrawingGroup Opacity="1">
+      <GeometryDrawing Brush="{Binding Color, Mode=OneWay}" Geometry="{StaticResource LoadSectionGeometry}" />
+      <GeometryDrawing>
+        <GeometryDrawing.Pen>
+          <Pen Brush="#FF324B4B" Thickness="2" StartLineCap="Flat" EndLineCap="Flat" LineJoin="Miter" />
+        </GeometryDrawing.Pen>
+        <GeometryDrawing.Geometry>
+          <RectangleGeometry RadiusX="9" RadiusY="9" Rect="1,1,120,60" />
+        </GeometryDrawing.Geometry>
+      </GeometryDrawing>
+      <DrawingGroup Opacity="1" Transform="1,0,0,1,-0.5,-0.5">
+        <DrawingGroup>
+          <GlyphRunDrawing ForegroundBrush="#FF324b4b">
+            <GlyphRunDrawing.GlyphRun>
+              <GlyphRun PixelsPerDip="1.25" BaselineOrigin="8.66,15" FontRenderingEmSize="12" BidiLevel="0" IsSideways="False" ClusterMap="0 1" Characters="LS" GlyphIndices="47 54" AdvanceWidths="6.672 8.004" GlyphOffsets="0,0 0,0" Language="en-us">
+                <GlyphRun.GlyphTypeface>
+                  <GlyphTypeface FontUri="C:\WINDOWS\FONTS\ARIAL.TTF" StyleSimulations="None" />
+                </GlyphRun.GlyphTypeface>
+              </GlyphRun>
+            </GlyphRunDrawing.GlyphRun>
+          </GlyphRunDrawing>
+        </DrawingGroup>
+      </DrawingGroup>
+    </DrawingGroup>
+  </DrawingGroup>
+  <DrawingImage x:Key="LoadSectionDrawingImage" Drawing="{StaticResource LoadSectionDrawingGroup}" />
+</ResourceDictionary>
