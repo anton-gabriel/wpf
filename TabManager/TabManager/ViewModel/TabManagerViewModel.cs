@@ -28,8 +28,9 @@ namespace TabManager.ViewModel
             {
                 ExecuteDelegate = CreateTab
             };
-            CloseTabCommand = new RelayCommand<TableData>()
+            CloseTabCommand = new RelayCommand<object>()
             {
+
                 ExecuteDelegate = CloseTab
             };
         }
@@ -39,7 +40,7 @@ namespace TabManager.ViewModel
         public TableData CurrentTab
         {
             get => currentTab;
-            private set
+            set
             {
                 currentTab = value;
                 OnPropertyChanged();
@@ -70,12 +71,14 @@ namespace TabManager.ViewModel
                 Index++;
             }
         }
-        private void CloseTab(TableData args)
+        private void CloseTab(object args)
         {
-            if (Tabs.Count > 1)
-            {
-                Tabs.Remove(args);
-            }
+
+            System.Console.WriteLine();
+            //if (Tabs.Count > 1)
+            //{
+            //    Tabs.Remove(args);
+            //}
         }
 
 
