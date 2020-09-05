@@ -11,5 +11,15 @@ namespace NegativeCoords
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            System.Console.WriteLine();
+        }
+
+        private void ContextMenu_Click(object sender, RoutedEventArgs e)
+        {
+            System.Console.WriteLine();
+        }
     }
 }

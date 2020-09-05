@@ -16,6 +16,10 @@ namespace NegativeCoords
         }
         #endregion
 
+        #region Private fields
+        private Rect selection;
+        #endregion
+
         #region Properties
         public Point? Anchor { get; set; }
         public Rect Selection
@@ -37,9 +41,13 @@ namespace NegativeCoords
         public ICommand DrawSelectionCommand => drawSelectionCommand ?? (drawSelectionCommand = new DrawSelectionCommand(this));
 
         private ICommand closeSelectionCommand;
-        private Rect selection;
-
         public ICommand CloseSelectionCommand => closeSelectionCommand ?? (closeSelectionCommand = new CloseSelectionCommand(this));
+
+        private ICommand openCommandsMenuCommand;
+        public ICommand OpenCommandsMenuCommand => openCommandsMenuCommand ?? (openCommandsMenuCommand = new OpenCommandsMenuCommand(this));
+
+        private ICommand closeCommandsMenuCommand;
+        public ICommand CloseCommandsMenuCommand => closeCommandsMenuCommand ?? (closeCommandsMenuCommand = new CloseCommandsMenuCommand(this));
         #endregion
 
         #region INotifyPropertyChanged

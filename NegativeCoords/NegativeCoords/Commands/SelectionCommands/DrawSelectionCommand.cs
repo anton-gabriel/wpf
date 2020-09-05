@@ -31,6 +31,7 @@ namespace NegativeCoords.Commands.SelectionCommands
                     SelectionViewModel.Selection = new Rect(anchor.Value, args.GetPosition(element));
                 }
             }
+            args.Handled = true;
         }
         #endregion
     }

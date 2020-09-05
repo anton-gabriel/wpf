@@ -58,8 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindingProxy.cs" />
+    <Compile Include="Commands\SelectionCommands\CloseCommandsMenuCommand.cs" />
     <Compile Include="Commands\SelectionCommands\CloseSelectionCommand.cs" />
     <Compile Include="Commands\SelectionCommands\DrawSelectionCommand.cs" />
+    <Compile Include="Commands\SelectionCommands\OpenCommandsMenuCommand.cs" />
     <Compile Include="Commands\SelectionCommands\StartSelectionCommand.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="SelectionViewModel.cs" />

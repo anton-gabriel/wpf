@@ -1,7 +1,6 @@
 ﻿using SmoothCurvedSegment.Commands;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace NegativeCoords.Commands.SelectionCommands
 {
@@ -31,6 +30,7 @@ namespace NegativeCoords.Commands.SelectionCommands
                 //search in component lists and select components that have margin in (anchor + area.toplef, anchor + area.bottomright) area
                 SelectionViewModel.Anchor = null;
             }
+            args.Handled = true;
         }
         #endregion
     }

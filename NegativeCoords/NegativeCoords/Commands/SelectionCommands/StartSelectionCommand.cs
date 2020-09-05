@@ -25,9 +25,14 @@ namespace NegativeCoords.Commands.SelectionCommands
         {
             if (args.Source is UIElement element)
             {
-                element.CaptureMouse();
-                SelectionViewModel.Anchor = args.GetPosition(element);
+                SelectionViewModel.Selection = new Rect();
+                if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                {
+                    element.CaptureMouse();
+                    SelectionViewModel.Anchor = args.GetPosition(element);
+                }
             }
+            args.Handled = true;
         }
         #endregion
     }
