@@ -150,6 +150,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindingProxy.cs" />
     <Compile Include="CanvasScaleViewModel.cs" />
     <Compile Include="Commands\AddComponentCommand.cs" />
     <Compile Include="Commands\OpenFileDialogCommand.cs" />
@@ -159,6 +160,11 @@
     <Compile Include="Commands\ReleaseComponentCommand.cs" />
     <Compile Include="Commands\RoutedCommandBinding.cs" />
     <Compile Include="Commands\CatchComponentCommand.cs" />
+    <Compile Include="Commands\SelectionCommands\CloseCommandsMenuCommand.cs" />
+    <Compile Include="Commands\SelectionCommands\CloseSelectionCommand.cs" />
+    <Compile Include="Commands\SelectionCommands\DrawSelectionCommand.cs" />
+    <Compile Include="Commands\SelectionCommands\OpenCommandsMenuCommand.cs" />
+    <Compile Include="Commands\SelectionCommands\StartSelectionCommand.cs" />
     <Compile Include="Commands\UpdateListCommand.cs" />
     <Compile Include="Commands\ZoomCommand.cs" />
     <Compile Include="ComponentView.xaml.cs">
@@ -176,6 +182,10 @@
     <Compile Include="Model\Data.cs" />
     <Compile Include="Model\Port.cs" />
     <Compile Include="Resources\Colors.cs" />
+    <Compile Include="SelectionView.xaml.cs">
+      <DependentUpon>SelectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectionViewModel.cs" />
     <Compile Include="SmoothCurveViewModel.cs" />
     <Compile Include="Utils\DependencyObjectExtensions.cs" />
     <Compile Include="Utils\Printer.cs" />
@@ -258,6 +268,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Templates\ExpanderHeaderTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

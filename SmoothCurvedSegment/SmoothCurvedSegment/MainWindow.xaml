@@ -199,6 +199,7 @@
                 <behaviors:Interaction.Behaviors>
                     <commands:RoutedCommandBinding RoutedCommand="{x:Static commands:RoutedCommands.SelectComponentCommand}" Command="{Binding TestCommandInner, Mode=OneWay}"/>
                 </behaviors:Interaction.Behaviors>
+                <local:SelectionView DataContext="{Binding SelectionViewModel, Mode=OneWay}"/>
 
                 <ItemsControl
                     ItemsSource="{Binding Components, Mode=OneWay}">

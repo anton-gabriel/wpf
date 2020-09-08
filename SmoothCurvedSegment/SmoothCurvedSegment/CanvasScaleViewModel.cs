@@ -40,10 +40,12 @@ namespace SmoothCurvedSegment
                 }
             };
             ScaleTransform = new ScaleTransform();
+            SelectionViewModel = new SelectionViewModel();
         }
         #endregion
 
         #region Properties
+        public SelectionViewModel SelectionViewModel { get; private set; }
         public ObservableCollection<ComponentViewModel> Components { get; private set; }
         public ScaleTransform ScaleTransform { get; set; }
         public IDictionary<string, string> Properties { get; private set; } = new Dictionary<string, string>()
