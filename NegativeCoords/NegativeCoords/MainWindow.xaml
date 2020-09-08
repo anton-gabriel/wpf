@@ -11,54 +11,13 @@
     Height="450"
     mc:Ignorable="d">
 
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <Grid Background="Transparent">
-
-            <Grid.Resources>
-                <local:BindingProxy x:Key="DataContextBindingProxy" Data="{Binding}" />
-            </Grid.Resources>
-
-            <Grid.DataContext>
-                <local:SelectionViewModel />
-            </Grid.DataContext>
-
-            <behaviors:Interaction.Triggers>
-                <behaviors:EventTrigger EventName="MouseDown">
-                    <behaviors:InvokeCommandAction Command="{Binding StartSelectionCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
-                </behaviors:EventTrigger>
-                <behaviors:EventTrigger EventName="MouseLeftButtonUp">
-                    <behaviors:InvokeCommandAction Command="{Binding OpenCommandsMenuCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=ContextMenuHolder}" />
-                    <behaviors:InvokeCommandAction Command="{Binding CloseSelectionCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
-                </behaviors:EventTrigger>
-                <behaviors:EventTrigger EventName="MouseMove">
-                    <behaviors:InvokeCommandAction Command="{Binding DrawSelectionCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
-                </behaviors:EventTrigger>
-            </behaviors:Interaction.Triggers>
-
-            <Path
-                x:Name="ContextMenuHolder"
-                Fill="AliceBlue"
-                Stroke="Blue"
-                StrokeThickness="0.3"
-                StrokeDashArray="12 5">
-
-                <Path.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="Clear">
-                            <behaviors:Interaction.Triggers>
-                                <behaviors:EventTrigger EventName="Click">
-                                    <behaviors:InvokeCommandAction Command="{Binding Source={StaticResource DataContextBindingProxy}, Path=Data.CloseCommandsMenuCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
-                                </behaviors:EventTrigger>
-                            </behaviors:Interaction.Triggers>
-                        </MenuItem>
-                    </ContextMenu>
-                </Path.ContextMenu>
-
-                <Path.Data>
-                    <RectangleGeometry Rect="{Binding Selection, Mode=OneWay}" />
-                </Path.Data>
-            </Path>
-
+        <Grid Background="#9DCECE">
+            <local:SelectionView DataContext="{Binding SelectionViewModel, Mode=OneWay}"/>
         </Grid>
     </ScrollViewer>
 </Window>
