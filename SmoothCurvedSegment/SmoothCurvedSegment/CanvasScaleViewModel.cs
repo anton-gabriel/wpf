@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using Microsoft.Xaml.Behaviors;
 
 namespace SmoothCurvedSegment
 {
