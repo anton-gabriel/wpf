@@ -1,32 +1,31 @@
-﻿using GraphPlot.Commands;
+﻿using GraphPlot.ViewModel.Contract;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
 
 namespace GraphPlot.ViewModel
 {
-    internal sealed class MainViewModel 
-        : BaseViewModel
+    internal sealed class MainViewModel
+        : BaseViewModel, IMainViewModel
     {
         #region Constructors
-        public MainViewModel()
+        public MainViewModel(ISceneViewModel sceneViewModel, ILogger<MainViewModel> logger)
         {
-
+            SceneViewModel = sceneViewModel ?? throw new ArgumentNullException(nameof(sceneViewModel));
+            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            Logger.LogInformation("MainViewModel built");
         }
         #endregion
 
         #region Private fields
-
         #endregion
 
         #region Properties
-
+        public ISceneViewModel SceneViewModel { get; }
+        private ILogger<MainViewModel> Logger { get; }
         #endregion
 
         #region Commands
-        private ICommand testCommand;
-        public ICommand TestCommand => testCommand ??= new RelayCommand<object>() { ExecuteDelegate = param => Console.WriteLine("Test")};        
+
         #endregion
     }
 }

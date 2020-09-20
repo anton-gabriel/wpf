@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Windows.Input;
 
 namespace GraphPlot.Commands
 {
     internal class RelayCommand<T>
-        : ICommand
+        : IRaisableCommand
     {
         #region Properties
         public Predicate<T> CanExecuteDelegate { get; set; }

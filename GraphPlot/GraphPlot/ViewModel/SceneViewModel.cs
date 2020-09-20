@@ -1,13 +1,18 @@
-﻿using System.Windows.Controls;
+﻿using GraphPlot.Commands;
+using GraphPlot.ViewModel.Contract;
+using System;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace GraphPlot.ViewModel
 {
     internal sealed class SceneViewModel
-        : BaseViewModel
+        : BaseViewModel, ISceneViewModel
     {
         #region Constructors
         public SceneViewModel()
         {
+            
         }
         #endregion
 
@@ -20,7 +25,8 @@ namespace GraphPlot.ViewModel
         #endregion
 
         #region Commands
-
+        private IRaisableCommand testCommand;
+        public IRaisableCommand TestCommand => testCommand ??= new RelayCommand<object>() { ExecuteDelegate = param => Console.WriteLine("Test") };
         #endregion
     }
 }
