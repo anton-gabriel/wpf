@@ -1,10 +1,19 @@
 ﻿using GraphPlot.Commands;
-using System.Windows.Input;
+using System.Windows.Media.Media3D;
 
 namespace GraphPlot.ViewModel.Contract
 {
     public interface ISceneViewModel
     {
-        IRaisableCommand TestCommand { get; }
+        #region Properties
+        Point3D CameraPosition { get; set; }
+        Vector3D CameraLookDirection { get; set; }
+        #endregion
+
+        #region Commands
+        IRaisableCommand MoveCameraCommand { get; }
+        IRaisableCommand AdvanceCameraCommand { get; }
+        IRaisableCommand RotateCameraCommand { get; }
+        #endregion
     }
 }

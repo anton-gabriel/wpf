@@ -2,11 +2,74 @@
     x:Class="GraphPlot.View.Controls.Scene"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:converters="clr-namespace:GraphPlot.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:GraphPlot.View.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="clr-namespace:GraphPlot.Utils"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid />
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries />
+
+            <converters:MoveCameraParameterConverter x:Key="MoveCameraParameterConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <behaviors:Interaction.Triggers>
+        <behaviors:EventTrigger EventName="KeyDown">
+            <behaviors:InvokeCommandAction Command="{Binding MoveCameraCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+        </behaviors:EventTrigger>
+        <behaviors:EventTrigger EventName="KeyUp">
+            <behaviors:InvokeCommandAction Command="{Binding MoveCameraCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+        </behaviors:EventTrigger>
+        <behaviors:EventTrigger EventName="MouseMove">
+            <behaviors:InvokeCommandAction Command="{Binding RotateCameraCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+        </behaviors:EventTrigger>
+        <behaviors:EventTrigger EventName="PreviewMouseWheel">
+            <behaviors:InvokeCommandAction Command="{Binding AdvanceCameraCommand, Mode=OneWay}" PassEventArgsToCommand="True" />
+        </behaviors:EventTrigger>
+    </behaviors:Interaction.Triggers>
+
+
+    <Grid Background="Transparent">
+
+        <Viewport3D>
+            <Viewport3D.Camera>
+                <PerspectiveCamera
+                    x:Name="PerspectiveCameraKey"
+                    LookDirection="{Binding CameraLookDirection, Mode=OneWay}"
+                    Position="{Binding CameraPosition, Mode=OneWay}" />
+            </Viewport3D.Camera>
+
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <DirectionalLight Direction="0,-1,0" />
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+
+            <ModelUIElement3D MouseDown="ModelUIElement3D_MouseDown">
+
+                <GeometryModel3D x:Name="Geometry">
+
+                    <GeometryModel3D.Geometry>
+                        <MeshGeometry3D Positions="0 0 0  1 0 0  0 1 0  1 1 0  0 0 1  1 0 1  0 1 1  0 1 1" TriangleIndices="2 3 1  3 1 0  7 1 3  7 5 1  6 5 7  6 4 5  6 2 0 2 0 4  2 7 3  2 6 7  0 1 5  0 5 4" />
+                    </GeometryModel3D.Geometry>
+
+                    <GeometryModel3D.Material>
+                        <DiffuseMaterial>
+                            <DiffuseMaterial.Brush>
+                                <SolidColorBrush Color="Red" />
+                            </DiffuseMaterial.Brush>
+                        </DiffuseMaterial>
+                    </GeometryModel3D.Material>
+                </GeometryModel3D>
+            </ModelUIElement3D>
+        </Viewport3D>
+    </Grid>
+
 </UserControl>
