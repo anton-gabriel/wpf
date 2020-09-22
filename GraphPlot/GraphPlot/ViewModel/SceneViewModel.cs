@@ -53,6 +53,9 @@ namespace GraphPlot.ViewModel
 
         private IRaisableCommand advanceCameraCommand;
         public IRaisableCommand AdvanceCameraCommand => advanceCameraCommand ??= new AdvanceCameraCommand(this);
+
+        private IRaisableCommand resetCameraCommand;
+        public IRaisableCommand ResetCameraCommand => resetCameraCommand ??= new ResetCameraCommand();
         #endregion
     }
 }

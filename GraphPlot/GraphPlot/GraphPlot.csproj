@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Converters\" />
     <Folder Include="Design\Templates\" />
     <Folder Include="Design\Style\" />
     <Folder Include="Model\" />

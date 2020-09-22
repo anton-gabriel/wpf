@@ -14,6 +14,7 @@ namespace GraphPlot.ViewModel.Contract
         IRaisableCommand MoveCameraCommand { get; }
         IRaisableCommand AdvanceCameraCommand { get; }
         IRaisableCommand RotateCameraCommand { get; }
+        IRaisableCommand ResetCameraCommand { get; }
         #endregion
     }
 }

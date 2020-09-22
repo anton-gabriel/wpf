@@ -1,5 +1,9 @@
-﻿using GraphPlot.ViewModel.Contract;
+﻿using GraphPlot.Utils.Extensions;
+using GraphPlot.ViewModel.Contract;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Media3D;
 
 namespace GraphPlot.Commands.SceneCommands
@@ -32,15 +36,26 @@ namespace GraphPlot.Commands.SceneCommands
         private void AdvanceCamera(MouseWheelEventArgs args)
         {
             var position = SceneViewModel.CameraPosition;
-            if (args.Delta > 0)
+            if (args.Source is DependencyObject source)
             {
-                SceneViewModel.CameraPosition = new Point3D(position.X, position.Y, position.Z - offset);
+                var camera = source.FindChild<Viewport3D>()?.Camera;
+                if (args.Delta > 0)
+                {
+                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation()
+                    {
+                        By = new Point3D(0, 0, -offset),
+                        SpeedRatio = 1,
+                    }, HandoffBehavior.Compose);
+                }
+                else if (args.Delta < 0)
+                {
+                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation()
+                    {
+                        By = new Point3D(0, 0, offset),
+                        SpeedRatio = 1,
+                    }, HandoffBehavior.Compose);
+                }
             }
-            else if (args.Delta < 0)
-            {
-                SceneViewModel.CameraPosition = new Point3D(position.X, position.Y, position.Z + offset);
-            }
-            System.Console.WriteLine(SceneViewModel.CameraPosition);
         }
         #endregion
     }

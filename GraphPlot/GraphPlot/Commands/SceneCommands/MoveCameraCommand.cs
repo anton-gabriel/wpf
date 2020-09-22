@@ -21,7 +21,7 @@ namespace GraphPlot.Commands.SceneCommands
         #endregion
 
         #region Private fields
-        private const double offset = 1;
+        private const double offset = 0.1;
         #endregion
 
         #region Properties
@@ -40,23 +40,23 @@ namespace GraphPlot.Commands.SceneCommands
                 var camera = source.FindChild<Viewport3D>()?.Camera;
                 if (Keyboard.IsKeyUp(args.Key))
                 {
-                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation() { By = new Point3D(0,0,0) });
+                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation() { By = new Point3D(0, 0, 0) });
                 }
                 else
                 {
                     var translation = args.Key switch
                     {
-                        Key.Left => new Point3D(-offset, 0, 0),
-                        Key.Up => new Point3D(0, offset, 0),
-                        Key.Right => new Point3D(offset, 0, 0),
-                        Key.Down => new Point3D(0, -offset, 0),
+                        var key when key == Key.Up || key == Key.W => new Point3D(0, offset, 0),
+                        var key when key == Key.Left || key == Key.A => new Point3D(-offset, 0, 0),
+                        var key when key == Key.Down || key == Key.S => new Point3D(0, -offset, 0),
+                        var key when key == Key.Right || key == Key.D => new Point3D(offset, 0, 0),
                         _ => new Point3D()
                     };
                     camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation()
                     {
                         By = translation,
-                        SpeedRatio = 3
-                    });
+                        SpeedRatio = 1,
+                    }, HandoffBehavior.Compose);
                 }
             }
         }
