@@ -1,5 +1,6 @@
 ﻿using GraphPlot.Commands;
 using GraphPlot.Commands.SceneCommands;
+using GraphPlot.Utils.Constants;
 using GraphPlot.ViewModel.Contract;
 using System.Windows.Media.Media3D;
 
@@ -20,8 +21,7 @@ namespace GraphPlot.ViewModel
         #endregion
 
         #region Properties
-
-        private Point3D cameraPosition = new Point3D(0, 2, 5);
+        private Point3D cameraPosition = SceneConstants.DefaultCameraPosition;
         public Point3D CameraPosition
         {
             get => cameraPosition;
@@ -32,7 +32,7 @@ namespace GraphPlot.ViewModel
             }
         }
 
-        private Vector3D cameraLookDirection = new Vector3D(0, -0.4, -1);
+        private Vector3D cameraLookDirection = SceneConstants.DefaultCameraDirection;
         public Vector3D CameraLookDirection
         {
             get => cameraLookDirection;
@@ -55,7 +55,7 @@ namespace GraphPlot.ViewModel
         public IRaisableCommand AdvanceCameraCommand => advanceCameraCommand ??= new AdvanceCameraCommand(this);
 
         private IRaisableCommand resetCameraCommand;
-        public IRaisableCommand ResetCameraCommand => resetCameraCommand ??= new ResetCameraCommand();
+        public IRaisableCommand ResetCameraCommand => resetCameraCommand ??= new ResetCameraCommand(this);
         #endregion
     }
 }

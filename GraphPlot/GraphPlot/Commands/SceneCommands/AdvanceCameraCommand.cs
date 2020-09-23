@@ -1,9 +1,5 @@
-﻿using GraphPlot.Utils.Extensions;
-using GraphPlot.ViewModel.Contract;
-using System.Windows;
-using System.Windows.Controls;
+﻿using GraphPlot.ViewModel.Contract;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Media3D;
 
 namespace GraphPlot.Commands.SceneCommands
@@ -22,9 +18,6 @@ namespace GraphPlot.Commands.SceneCommands
 
         #region Private fields
         private const double offset = 0.1;
-        #endregion
-
-        #region Properties
         private ISceneViewModel SceneViewModel { get; }
         #endregion
 
@@ -35,26 +28,15 @@ namespace GraphPlot.Commands.SceneCommands
         }
         private void AdvanceCamera(MouseWheelEventArgs args)
         {
-            var position = SceneViewModel.CameraPosition;
-            if (args.Source is DependencyObject source)
+            //Calculate frequency and adapt offset
+            var direction = SceneViewModel.CameraLookDirection;
+            if (args.Delta > 0)
             {
-                var camera = source.FindChild<Viewport3D>()?.Camera;
-                if (args.Delta > 0)
-                {
-                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation()
-                    {
-                        By = new Point3D(0, 0, -offset),
-                        SpeedRatio = 1,
-                    }, HandoffBehavior.Compose);
-                }
-                else if (args.Delta < 0)
-                {
-                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation()
-                    {
-                        By = new Point3D(0, 0, offset),
-                        SpeedRatio = 1,
-                    }, HandoffBehavior.Compose);
-                }
+                SceneViewModel.CameraPosition += new Vector3D(direction.X * offset, direction.Y * offset, direction.Z * offset);
+            }
+            else if (args.Delta < 0)
+            {
+                SceneViewModel.CameraPosition -= new Vector3D(direction.X * offset, direction.Y * offset, direction.Z * offset);
             }
         }
         #endregion

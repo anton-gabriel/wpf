@@ -1,9 +1,6 @@
-﻿using GraphPlot.Utils.Extensions;
-using GraphPlot.ViewModel.Contract;
+﻿using GraphPlot.ViewModel.Contract;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Media3D;
 
 namespace GraphPlot.Commands.SceneCommands
@@ -22,9 +19,7 @@ namespace GraphPlot.Commands.SceneCommands
 
         #region Private fields
         private const double offset = 0.1;
-        #endregion
 
-        #region Properties
         private ISceneViewModel SceneViewModel { get; }
         #endregion
 
@@ -35,30 +30,14 @@ namespace GraphPlot.Commands.SceneCommands
         }
         private void MoveCamera(KeyEventArgs args)
         {
-            if (args.Source is DependencyObject source)
+            SceneViewModel.CameraPosition += args.Key switch
             {
-                var camera = source.FindChild<Viewport3D>()?.Camera;
-                if (Keyboard.IsKeyUp(args.Key))
-                {
-                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation() { By = new Point3D(0, 0, 0) });
-                }
-                else
-                {
-                    var translation = args.Key switch
-                    {
-                        var key when key == Key.Up || key == Key.W => new Point3D(0, offset, 0),
-                        var key when key == Key.Left || key == Key.A => new Point3D(-offset, 0, 0),
-                        var key when key == Key.Down || key == Key.S => new Point3D(0, -offset, 0),
-                        var key when key == Key.Right || key == Key.D => new Point3D(offset, 0, 0),
-                        _ => new Point3D()
-                    };
-                    camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation()
-                    {
-                        By = translation,
-                        SpeedRatio = 1,
-                    }, HandoffBehavior.Compose);
-                }
-            }
+                var key when key == Key.Up || key == Key.W => new Vector3D(0, offset, 0),
+                var key when key == Key.Left || key == Key.A => new Vector3D(-offset, 0, 0),
+                var key when key == Key.Down || key == Key.S => new Vector3D(0, -offset, 0),
+                var key when key == Key.Right || key == Key.D => new Vector3D(offset, 0, 0),
+                _ => new Vector3D()
+            };
         }
         #endregion
     }

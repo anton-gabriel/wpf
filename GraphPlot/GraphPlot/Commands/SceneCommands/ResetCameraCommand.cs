@@ -1,4 +1,6 @@
-﻿using GraphPlot.Utils.Extensions;
+﻿using GraphPlot.Utils.Constants;
+using GraphPlot.Utils.Extensions;
+using GraphPlot.ViewModel.Contract;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -12,10 +14,15 @@ namespace GraphPlot.Commands.SceneCommands
         : RelayCommand<DependencyObject>
     {
         #region Constructors
-        public ResetCameraCommand()
+        public ResetCameraCommand(ISceneViewModel sceneViewModel)
         {
+            SceneViewModel = sceneViewModel ?? throw new ArgumentNullException(nameof(sceneViewModel));
             ExecuteDelegate = ResetCamera;
         }
+        #endregion
+
+        #region Properties
+        private ISceneViewModel SceneViewModel { get; }
         #endregion
 
         #region Private methods
@@ -24,20 +31,31 @@ namespace GraphPlot.Commands.SceneCommands
             if (args != null)
             {
                 var camera = args.FindChild<Viewport3D>()?.Camera as PerspectiveCamera;
-                camera.BeginAnimation(ProjectionCamera.PositionProperty, new Point3DAnimation()
+                var position = new Point3DAnimation()
                 {
                     From = camera.Position,
-                    To = new Point3D(0, 2, 5),
+                    To = SceneConstants.DefaultCameraPosition,
                     Duration = new Duration(TimeSpan.FromMilliseconds(300))
-                });
-                camera.BeginAnimation(ProjectionCamera.LookDirectionProperty, new Vector3DAnimation()
+                }.CreateClock();
+                position.Completed += (sender, args) =>
+                {
+                    camera.BeginAnimation(ProjectionCamera.PositionProperty, null);
+                    SceneViewModel.CameraPosition = SceneConstants.DefaultCameraPosition;
+                };
+                camera.ApplyAnimationClock(ProjectionCamera.PositionProperty, position);
+                var direction = new Vector3DAnimation()
                 {
                     From = camera.LookDirection,
-                    To = new Vector3D(0, -0.4, -1),
+                    To = SceneConstants.DefaultCameraDirection,
                     Duration = new Duration(TimeSpan.FromMilliseconds(300))
-                });
+                }.CreateClock();
+                direction.Completed += (sender, args) =>
+                {
+                    camera.BeginAnimation(ProjectionCamera.LookDirectionProperty, null);
+                    SceneViewModel.CameraLookDirection = SceneConstants.DefaultCameraDirection;
+                };
+                camera.ApplyAnimationClock(ProjectionCamera.LookDirectionProperty, direction);
             }
-            Trace.WriteLine("Add class for above constants.");
         }
         #endregion
     }

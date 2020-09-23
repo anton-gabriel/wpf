@@ -17,12 +17,12 @@
     <Folder Include="Design\Templates\" />
     <Folder Include="Design\Style\" />
     <Folder Include="Model\" />
-    <Folder Include="Utils\Constants\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.1" />
     <PackageReference Include="NLog" Version="4.7.4" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.6.5" />
   </ItemGroup>
