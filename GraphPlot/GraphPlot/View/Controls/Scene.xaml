@@ -49,47 +49,33 @@
                     Position="{Binding CameraPosition, Mode=TwoWay}" />
             </Viewport3D.Camera>
 
+
             <ModelVisual3D>
                 <ModelVisual3D.Content>
-                    <DirectionalLight Direction="0,-1,0"  />
+                    <DirectionalLight Direction="0, -1, 0" Color="#019595" />
                 </ModelVisual3D.Content>
             </ModelVisual3D>
+
 
             <ModelUIElement3D MouseDown="ModelUIElement3D_MouseDown">
                 <GeometryModel3D>
 
                     <GeometryModel3D.Geometry>
-                        <MeshGeometry3D Positions="0 0 0  1 0 0  0 1 0  1 1 0  0 0 1  1 0 1  0 1 1  0 1 1" TriangleIndices="2 3 1  3 1 0  7 1 3  7 5 1  6 5 7  6 4 5  6 2 0 2 0 4  2 7 3  2 6 7  0 1 5  0 5 4" />
+                        <MeshGeometry3D
+                            Normals="0,1,0    0,1,0    0,1,0    0,1,0"
+                            Positions="0 0 0    0 0 1    1 0 1    1 0 0"
+                            TriangleIndices="0 1 2    0 2 3" />
                     </GeometryModel3D.Geometry>
 
                     <GeometryModel3D.Material>
                         <DiffuseMaterial>
                             <DiffuseMaterial.Brush>
-                                <SolidColorBrush Color="Red" />
+                                <SolidColorBrush Color="Yellow" />
                             </DiffuseMaterial.Brush>
                         </DiffuseMaterial>
                     </GeometryModel3D.Material>
                 </GeometryModel3D>
             </ModelUIElement3D>
-
-            <ModelVisual3D>
-                <ModelVisual3D.Content>
-                    <GeometryModel3D>
-
-                        <GeometryModel3D.Geometry>
-                            <MeshGeometry3D Positions="-10 1 -10    10 1 -10    10 1 10     -10 1 10" TriangleIndices="0 1 2 1 2 0" />
-                        </GeometryModel3D.Geometry>
-
-                        <GeometryModel3D.Material>
-                            <DiffuseMaterial>
-                                <DiffuseMaterial.Brush>
-                                    <SolidColorBrush Color="YellowGreen" />
-                                </DiffuseMaterial.Brush>
-                            </DiffuseMaterial>
-                        </GeometryModel3D.Material>
-                    </GeometryModel3D>
-                </ModelVisual3D.Content>
-            </ModelVisual3D>
         </Viewport3D>
 
         <Button

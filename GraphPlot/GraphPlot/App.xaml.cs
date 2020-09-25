@@ -12,6 +12,8 @@ namespace GraphPlot
     /// </summary>
     public partial class App : Application
     {
+        private const string LoggerConfigFile = @"..\..\..\NLog.config";
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -21,7 +23,7 @@ namespace GraphPlot
                 .AddTransient<IMainViewModel, MainViewModel>()
                 .AddLogging(logging =>
                 {
-                    logging.AddNLog(@"..\..\..\NLog.config");
+                    logging.AddNLog(LoggerConfigFile);
                 })
                 .BuildServiceProvider();
             MainView mainView = new MainView()

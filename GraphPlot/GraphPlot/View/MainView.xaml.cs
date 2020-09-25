@@ -11,5 +11,10 @@ namespace GraphPlot.View
         {
             InitializeComponent();
         }
+
+        private void Grid_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+        {
+            System.Console.WriteLine("Handled from Scene");
+        }
     }
 }

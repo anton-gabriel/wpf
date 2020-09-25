@@ -17,26 +17,35 @@ namespace GraphPlot.Commands.SceneCommands
         #endregion
 
         #region Private fields
-        private const double offset = 0.1;
+        private const double factor = 0.1;
+        #endregion
+
+        #region Properties
         private ISceneViewModel SceneViewModel { get; }
         #endregion
 
         #region Private methods
         private bool CanAdvanceCamera(MouseWheelEventArgs args)
         {
-            return true;
+            return args.Delta < 0 ?
+                 (SceneViewModel.CameraPosition.X < double.MaxValue &&
+                  SceneViewModel.CameraPosition.Y < double.MaxValue &&
+                  SceneViewModel.CameraPosition.Z < double.MaxValue)
+                : SceneViewModel.CameraPosition.Y > factor * SceneViewModel.CameraLookDirection.Y;
         }
         private void AdvanceCamera(MouseWheelEventArgs args)
         {
-            //Calculate frequency and adapt offset
+            //direction: Consider camera direction when advance the camera position
+            //position: Factor d.p. with position (if close to zero decrease slowly)
             var direction = SceneViewModel.CameraLookDirection;
+            var position = SceneViewModel.CameraPosition;
             if (args.Delta > 0)
             {
-                SceneViewModel.CameraPosition += new Vector3D(direction.X * offset, direction.Y * offset, direction.Z * offset);
+                SceneViewModel.CameraPosition += new Vector3D(direction.X * factor, direction.Y * factor, direction.Z * factor);
             }
             else if (args.Delta < 0)
             {
-                SceneViewModel.CameraPosition -= new Vector3D(direction.X * offset, direction.Y * offset, direction.Z * offset);
+                SceneViewModel.CameraPosition -= new Vector3D(direction.X * factor, direction.Y * factor, direction.Z * factor);
             }
         }
         #endregion
