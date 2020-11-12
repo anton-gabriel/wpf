@@ -1,9 +1,11 @@
 ﻿using GraphPlot.Commands;
+using System.ComponentModel;
 using System.Windows.Media.Media3D;
 
 namespace GraphPlot.ViewModel.Contract
 {
     public interface ISceneViewModel
+        : INotifyPropertyChanged
     {
         #region Properties
         Point3D CameraPosition { get; set; }

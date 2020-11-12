@@ -17,6 +17,9 @@
     <Folder Include="Design\Templates\" />
     <Folder Include="Design\Style\" />
     <Folder Include="Model\" />
+    <Folder Include="NewFolder\" />
+    <Folder Include="View\Menu\" />
+    <Folder Include="View\Modules\" />
   </ItemGroup>
 
   <ItemGroup>

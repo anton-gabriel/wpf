@@ -1,6 +1,7 @@
 ﻿using GraphPlot.View;
 using GraphPlot.ViewModel;
 using GraphPlot.ViewModel.Contract;
+using GraphPlot.ViewModel.Factory;
 using Microsoft.Extensions.DependencyInjection;
 using NLog.Extensions.Logging;
 using System.Windows;
@@ -19,8 +20,10 @@ namespace GraphPlot
             base.OnStartup(e);
             var services = new ServiceCollection();
             var provider = services
-                .AddTransient<ISceneViewModel, SceneViewModel>()
                 .AddTransient<IMainViewModel, MainViewModel>()
+                .AddTransient<IControlModule, SceneModule>()
+                .AddTransient<ISceneViewModel, SceneViewModel>()
+                .AddSingleton<IControlFactory, ControlFactory>()
                 .AddLogging(logging =>
                 {
                     logging.AddNLog(LoggerConfigFile);
@@ -30,6 +33,7 @@ namespace GraphPlot
             {
                 DataContext = provider.GetRequiredService<IMainViewModel>()
             };
+            var t = provider.GetRequiredService<IControlFactory>();
             mainView.Show();
         }
     }

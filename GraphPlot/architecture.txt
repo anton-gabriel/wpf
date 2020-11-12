@@ -1,0 +1,32 @@
+ControlFactory/ControlCreator
+
+
+IControlModule
+{
+	prop get string Name;
+	prop get BaseViewModel Context;
+}
+
+SceneViewModule : IControlModule
+{
+	ctor(ISceneViewModel)
+
+	prop get string Name => "Scene"
+	prop get BaseViewModel => SceneViewModel
+}
+
+//add as singleton service ?
+IControlFactory 
+{
+	IControlModule CreateModule(enum ControlModuleType type);
+}
+
+ControlFactory : IControlFactory
+{
+	IControlModule CreateModule(enum ControlModuleType type)
+	{
+		retunr ModuleCreator[type]();
+	}
+	
+	private prop get/set Dictionary<ControlModuleType, Func<IControlModule>> ModuleCreator
+}
